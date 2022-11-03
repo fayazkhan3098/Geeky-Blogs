@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+{% block content %}
+	
+	<div class="content-section">
+		<form method="POST">
+			{% csrf_token %} <!-- this csrf_token is used for security purpose which is provided by django framework itself -->
+			<fieldset class="form-group">
+				<legend class= "border-bottom mb-4"><b>Delete Post</b></legend>
+				<h4>Are You Sure you Want to Delete the Post </h4>
+				<h4>{{ object.Tittle }}</h4>
+			</fieldset>	
+			<div class="form-group">
+				<button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+				<a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %}">Cancel</a>
+			</div>		
+		</form>
+	</div>
+
+{% endblock content %}
+
+
